@@ -1,17 +1,17 @@
 const z = require("zod")
 const signupSchema = z.object({
     username: z.string().email(),
-    password: z.string().min(8).max(20),
+    password: z.string(),
     firstName: z.string(),
     lastName: z.string()
 })
 const signinSchema =  z.object({
     username: z.string().email(),
-    password: z.string().min(8).max(20)
+    password: z.string()
  
 })
 const updateSchema = z.object({
-    password:z.string().min(8).max(20),
+    password:z.string(),
     firstName: z.string(),
     lastName: z.string()
 })

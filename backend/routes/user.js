@@ -31,6 +31,7 @@ router.post("/signup", async (req,res)=>{
         userId:dbUser._id,
         balance: 1 + Math.random() * 1000
     })
+    console.log(token)
     res.json({msg:"User created successfully",
         token: token
     })
@@ -68,9 +69,9 @@ router.put("/",authMiddleware,async (req,res)=>{
     res.json({msg:"User information updated successfully"})
 
 })
-router.get("/bulk", async (req, res) => {
-    const filter = req.query.filter || "";
-
+router.get("/bulk",async (req, res) => {
+    const filter = req.query.filter || ""
+    console.log(filter)
     const users = await User.find({
         $or: [{
             firstName: {
